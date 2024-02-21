@@ -17,7 +17,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: demoimg
+      IMAGE_NAME: demoimage
 
     steps:
     - uses: actions/checkout@v3
@@ -66,8 +66,8 @@ jobs:
 
     - name: Deploy to Cloud Run
       run: |
-        gcloud run deploy pipelinetesting \
-        --image us-west2-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/app-test/demoimg:latest \
+        gcloud run deploy streamlit-app \
+        --image us-west2-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/app-test/demoimage:latest \
         --platform managed \
         --region us-west2  \
         --service-account my-cloud-run-service-account@leafy-antonym-413607.iam.gserviceaccount.com
