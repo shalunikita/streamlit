@@ -17,7 +17,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: demoimg
+      IMAGE_NAME: demoimage
 
     steps:
     - uses: actions/checkout@v3
@@ -45,5 +45,14 @@ jobs:
        project_id: ${{ secrets.GCP_PROJECT_ID }}
        export_environment_variables: true
        id_token_audience: ${{ secrets.GCP_PROJECT_ID }}
+
+    - name: Build Docker Image
+      run: docker build -t $IMAGE_NAME:latest . 
+
+   
+
+    - name: Configure Docker Client
+      run: |
+          gcloud auth configure-docker us-west2-docker.pkg.dev --quiet
 
    
