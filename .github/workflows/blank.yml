@@ -17,7 +17,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: demoimage
+      IMAGE_NAME:  demoimage
 
     steps:
     - uses: actions/checkout@v3
