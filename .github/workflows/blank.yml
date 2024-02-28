@@ -17,7 +17,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: demoimage
+      IMAGE_NAME:  demoimage
 
     steps:
     - uses: actions/checkout@v3
@@ -51,9 +51,6 @@ jobs:
 
    
 
-    - name: Configure Docker Client
-      run: |
-          gcloud auth configure-docker us-west2-docker.pkg.dev --quiet
 
     - name: Automatic Tagging of Releases
       id: increment-git-tag
